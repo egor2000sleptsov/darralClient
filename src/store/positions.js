@@ -18,12 +18,20 @@ export default {
 	actions: {
 		async loadPositions(context, payload) {
 			try {
-				let positions = (await api.positions.load(payload)).data
-				console.log(context)
 				console.log(payload)
-				console.log(positions)
+				let positions = (await api.positions.load(payload)).data
 				if (positions.status === 'success'){
 					context.commit('SET_POSITIONS', positions.data)
+				}
+			} catch (e) {
+				console.log(e)
+			}
+		},
+		async addPosition(context, payload) {
+			try {
+				const res = (await api.positions.add(payload)).data
+				if (res.status === 'success') {
+					console.log('Позиция успешно добавлена')
 				}
 			} catch (e) {
 				console.log(e)

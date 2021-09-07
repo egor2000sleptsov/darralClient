@@ -32,11 +32,9 @@ import PositionCard from "../components/PositionCard";
 export default {
   created() {
     this.loadCategories({
-      method: 'receive',
       subMethod: 'all'
     })
     this.loadPositions({
-      method: 'receive',
       subMethod: 'all'
     })
   },

@@ -18,6 +18,7 @@
           <v-col cols="6">
             <v-btn
                 icon
+                @click="this.edit"
             >
               <v-icon>
                 mdi-pencil
@@ -25,6 +26,7 @@
             </v-btn>
             <v-btn
                 icon
+                @click="this.delete"
             >
               <v-icon>
                 mdi-delete
@@ -42,6 +44,14 @@ import {mapGetters} from 'vuex'
 
 export default {
   name: "PositionCard",
+  methods: {
+    delete() {
+      console.log('delete')
+    },
+    edit() {
+      console.log('edit')
+    }
+  },
   computed: {
     ...mapGetters({
       positions: 'positions/getPositions'

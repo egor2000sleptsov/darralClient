@@ -7,7 +7,10 @@ export default {
 	},
 	getters: {
 		getCategories(state) {
-			return state.categories;
+			return state.categories.map(el => el.name);
+		},
+		getCategoriesNative(state) {
+			return state.categories
 		}
 	},
 	mutations: {
@@ -24,6 +27,16 @@ export default {
 				}
 			} catch (e) {
 				console.log(e);
+			}
+		},
+		async addCategory(context, payload){
+			try {
+				let res = (await api.categories.add(payload)).data
+				if (res.status === 'success') {
+					console.log('Категория успешно добавлена')
+				}
+			} catch (e) {
+				console.log(e)
 			}
 		}
 	}
