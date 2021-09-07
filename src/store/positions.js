@@ -18,7 +18,6 @@ export default {
 	actions: {
 		async loadPositions(context, payload) {
 			try {
-				console.log(payload)
 				let positions = (await api.positions.load(payload)).data
 				if (positions.status === 'success'){
 					context.commit('SET_POSITIONS', positions.data)

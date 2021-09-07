@@ -108,9 +108,13 @@ export default {
           data: {
             name: this.form.name
           }
-        }).then(() => this.loadCategories({
-          subMethod: 'all'
-        }))
+        }).then(() => {
+          this.isSuccess = true
+          this.loadCategories({
+            subMethod: 'all'
+          })
+          setTimeout(() => { this.isSuccess = false}, 3000)
+        })
       }
     },
     ...mapActions({

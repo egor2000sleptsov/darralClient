@@ -5,6 +5,9 @@ export default function (instance) {
 		},
 		add(payload) {
 			return instance.post('categories', {method: 'create', ...payload})
+		},
+		del(payload) {
+			return instance.post('categories', {method: 'delete', ...payload})
 		}
 	}
 }

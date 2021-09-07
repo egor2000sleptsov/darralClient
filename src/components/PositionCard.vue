@@ -12,7 +12,7 @@
       <v-card-actions>
         <v-row justify="space-between">
           <v-col cols="6">
-            {{ el.price }}р {{ el.weight }}гр
+            {{ el.price }}р {{ el.weight }}г
           </v-col>
           <v-spacer/>
           <v-col cols="6">
@@ -40,17 +40,24 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 
 export default {
   name: "PositionCard",
   methods: {
     delete() {
-      console.log('delete')
+      this.$api.positions.delete({
+        subMethod: 'byID',
+        id: this.el.id
+      })
+      this.loadPositions({subMethod: 'all'})
     },
     edit() {
       console.log('edit')
-    }
+    },
+    ...mapActions({
+      loadPositions: 'positions/loadPositions'
+    })
   },
   computed: {
     ...mapGetters({
