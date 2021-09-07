@@ -1,23 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import categories from "./categories";
+import positions from "./positions";
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-	state: {
-		categories: []
-	},
-	getters: {
-		getCategories(state) {
-			return state.categories
-		}
-	},
+	state: {},
+	getters: {},
 	mutations: {},
-	actions: {
-		async LoadCategories(context, payload) {
-			console.log(context)
-			console.log(payload)
-		}
-	},
-	modules: {}
+	actions: {},
+	modules: {categories, positions}
 })
