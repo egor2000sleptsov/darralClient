@@ -13,7 +13,7 @@
             dismissible
             type="success"
             v-if="isSuccess"
-        >Данные успещно сохранены
+        >Данные успешно сохранены
         </v-alert>
       </v-card-title>
 
